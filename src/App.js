@@ -1,4 +1,4 @@
-import { Category } from "./components";
+import { Category } from "./components/Category";
 
 const App = () => {
   return (
