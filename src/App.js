@@ -1,9 +1,9 @@
-import { Category } from "./components/Category";
+import { ListOfCategories } from "./components/ListOfCategories";
 
 const App = () => {
   return (
     <div className="App">
-     <Category />
+      <ListOfCategories />
     </div>
   );
 }
