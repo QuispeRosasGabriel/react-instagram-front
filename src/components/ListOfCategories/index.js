@@ -1,14 +1,15 @@
 import React from 'react';
 import {Category} from '../Category';
 import {List, Item} from './styles';
+import  {categories} from '../../assets/db.json';
 
 export const ListOfCategories = () => {
     return(
         <List>
             {
-                [1,2,3].map((val, idx) => (
-                    <Item>
-                        <Category key={idx} />
+                categories.map((category, idx) => (
+                    <Item key={category.id}>
+                        <Category {...category} />
                     </Item>
                 ))
             }
