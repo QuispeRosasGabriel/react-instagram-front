@@ -36,4 +36,5 @@ export const Button = styled.button`
 
 export const Article = styled.article`
     margin: 1rem 0;
+    min-height: 200px;
 `;
