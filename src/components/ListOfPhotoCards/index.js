@@ -9,7 +9,7 @@ export const ListOfPhotoCards = ({ categoryId }) => {
     return (
         <ul>
             {
-                !loading && data?.photos?.map((photo, idx) => (<PhotoCard key={idx}  {...photo} />))
+                !loading && data?.photos?.map((photo, idx) => (<PhotoCard key={photo.id}  {...photo} />))
             }
         </ul>
     )
