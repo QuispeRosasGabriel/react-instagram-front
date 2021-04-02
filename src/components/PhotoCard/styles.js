@@ -21,19 +21,6 @@ export const Img = styled.img`
     ${fadeIn()}
 `
 
-export const Button = styled.button`
-    display: flex; 
-    align-items: center;
-    justify-content: flex-end;
-    padding-top: 8px;  
-    background-color: transparent;
-    border: none;  
-    & svg {
-        margin-right: 4px;
-
-    }
-`
-
 export const Article = styled.article`
     margin: 1rem 0;
     min-height: 200px;
