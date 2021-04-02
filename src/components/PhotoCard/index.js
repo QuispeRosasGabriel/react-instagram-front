@@ -6,9 +6,10 @@ const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1500879747858-bb1845b61
 
 export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     const [show, setShow] = useState(false);
+    const key = `like${id}`;
     const [liked, setLiked] = useState(() => {
         try {
-            const like = localStorage.getItem('like')
+            const like = localStorage.getItem(key)
             return like;
         } catch (error) {
             console.log(error);
@@ -18,7 +19,7 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     const Icon  = !!liked ? MdFavorite : MdFavoriteBorder;
     const setLocalStorage = (value) => {
         try {
-            localStorage.setItem('like', value);
+            localStorage.setItem(key, value);
             setLiked(value);
         } catch (error) {
             console.log(error);
