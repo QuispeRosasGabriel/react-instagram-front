@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {fadeIn} from '../styles/animations';
 
 export const ImgWrapper = styled.div`
     border-radius: 10px;
@@ -17,11 +18,13 @@ export const Img = styled.img`
     position: absolute;
     top: 0;
     width: 100%;
+    ${fadeIn()}
 `
 
 export const Button = styled.button`
     display: flex; 
     align-items: center;
+    justify-content: flex-end;
     padding-top: 8px;  
     background-color: transparent;
     border: none;  
@@ -30,3 +33,7 @@ export const Button = styled.button`
 
     }
 `
+
+export const Article = styled.article`
+    margin: 1rem 0;
+`;
