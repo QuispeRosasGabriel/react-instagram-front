@@ -9,9 +9,9 @@ import { Context } from "./context/Context";
 
 const App = () => {
   
-  const UserLogged = ({children}) => {
+  /*const UserLogged = ({children}) => {
     return children({isAuth: false});
-  }
+  }*/
 
   return (
     <Layout className="">
