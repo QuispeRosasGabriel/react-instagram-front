@@ -4,7 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost'
-
+import { ContextProvider} from './context/Context';
 
 const cache = new InMemoryCache()
 
@@ -19,9 +19,11 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-    <App />
-    </ApolloProvider>
+    <ContextProvider>
+      <ApolloProvider client={client}>
+       <App />
+      </ApolloProvider>
+    </ContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

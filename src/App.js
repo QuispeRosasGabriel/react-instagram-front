@@ -5,6 +5,7 @@ import { NotRegisteredUser } from './pages/NotRegisteredUser';
 import { Favs } from './pages/Favs';
 import { Router } from '@reach/router';
 import { Layout } from './layout/Layout';
+import { Context } from "./context/Context";
 
 const App = () => {
   
@@ -19,7 +20,7 @@ const App = () => {
             <Home path='/pet/:id' />
             <Detail  path='/detail/:detailId'/>
           </Router>
-            <UserLogged>
+            <Context.Consumer>
             {
               ({isAuth}) => 
               !!isAuth ?
@@ -34,7 +35,7 @@ const App = () => {
 
             }
        
-            </UserLogged>
+            </Context.Consumer>
     </Layout>
   );
 }
