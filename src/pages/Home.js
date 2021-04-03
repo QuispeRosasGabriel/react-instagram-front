@@ -10,3 +10,5 @@ export const Home = ({id}) => {
         </>
     )
 }
+
+// https://petgram-server-jrmfsd-okxluew9o.now.sh/graphql
