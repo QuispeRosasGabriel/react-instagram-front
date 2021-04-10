@@ -9,12 +9,15 @@ import { ContextProvider} from './context/Context';
 const cache = new InMemoryCache()
 
 const link = new HttpLink({
-    uri: 'https://petgram-server-jrmfsd-okxluew9o.now.sh/graphql'
+    uri: 'https://petgram-server-jrmfsd-okxluew9o.now.sh/graphql',
+    headers: {
+      authorization: `Bearer ${sessionStorage.getItem('token')}` || '',
+    }
 })
 
 const client = new ApolloClient({
   cache,
-  link
+  link,
 })
 
 ReactDOM.render(
