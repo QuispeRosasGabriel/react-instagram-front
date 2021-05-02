@@ -25,7 +25,7 @@ const renderProp = ({loading, error, data}) => {
 }
 
 export const FavsWithQuery = () => (
-    <Query query={GET_FAVS}>
+    <Query query={GET_FAVS} fetchPolicy='network-only'>
         {renderProp}
     </Query>
 )

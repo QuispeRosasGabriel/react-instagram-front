@@ -9,6 +9,10 @@ export const ContextProvider = ({ children }) => {
         activateAuth: (token) => {
             sessionStorage.setItem('token', token);
             setIsAuth(true);
+        },
+        removeAuth: () => {
+            setIsAuth(false);
+            window.sessionStorage.removeItem('token');
         }
     }
 
