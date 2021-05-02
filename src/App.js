@@ -3,39 +3,38 @@ import { Detail } from './pages/Detail';
 import { User } from './pages/User';
 import { NotRegisteredUser } from './pages/NotRegisteredUser';
 import { Favs } from './pages/Favs';
-import { Router } from '@reach/router';
+import { Redirect, Router } from '@reach/router';
 import { Layout } from './layout/Layout';
 import { Context } from "./context/Context";
+import { useContext } from 'react';
+import NotFound from './pages/NotFound';
 
 const App = () => {
-  
-  /*const UserLogged = ({children}) => {
-    return children({isAuth: false});
-  }*/
+
+  const { isAuth } = useContext(Context);
 
   return (
     <Layout className="">
-          <Router>
-            <Home path='/' />
-            <Home path='/pet/:id' />
-            <Detail  path='/detail/:detailId'/>
-          </Router>
-            <Context.Consumer>
-            {
-              ({isAuth}) => 
-              !!isAuth ?
-              <Router>
-               <Favs path = '/favs' />
-               <User path = '/user' />
-              </Router> :
-              <Router>
-                <NotRegisteredUser path = '/favs' />
-                <NotRegisteredUser path = '/user' />
-              </Router>
-
-            }
-       
-            </Context.Consumer>
+      <Router>
+        <NotFound default />
+        <Home path='/' />
+        <Home path='/pet/:id' />
+        <Detail path='/detail/:detailId' />
+        {
+          !isAuth && <NotRegisteredUser path='/login' />
+        }
+        {
+          !isAuth && <Redirect from='/favs' noThrow to='/login' />
+        }
+        {
+          !isAuth && <Redirect from='/user' noThrow to='/login' />
+        }
+        {
+          !!isAuth &&  <Redirect from='login' noThrow to='/' />
+        }
+        <Favs path='/favs' />
+        <User path='/user' />
+      </Router>
     </Layout>
   );
 }
